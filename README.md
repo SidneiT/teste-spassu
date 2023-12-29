@@ -32,7 +32,7 @@ docker-compose down
 
 Link do frontend →  [http://localhost:3000](http://localhost:3000)
 
-Paths das API`s
+Paths das API`s, no projeto contém a collection para testes utilizando o postman.
 
 | http://localhost/api/books   |
 | ---------------------------- |
