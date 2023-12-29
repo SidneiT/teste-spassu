@@ -2,7 +2,10 @@
 
 namespace App\Exceptions;
 
+use Exception;
+use Illuminate\Database\Eloquent\MassAssignmentException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
@@ -33,6 +36,15 @@ class Handler extends ExceptionHandler
                 return response()->json([
                     'message' => 'Record not found.'
                 ], 404);
+            }
+        });
+
+
+        $this->renderable(function (MassAssignmentException $e, $request) {
+            if ($request->is('api/*')) {
+                return response()->json([
+                    'message' => 'Internal server error.'
+                ], 500);
             }
         });
     }
