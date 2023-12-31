@@ -1,13 +1,12 @@
 import Tab from 'react-bootstrap/Tab';
 import Tabs from 'react-bootstrap/Tabs';
-import "bootstrap/dist/css/bootstrap.min.css"
-import "./App.css"
-import Header from './components/header';
-import Books from './components/books';
-import Authors from './components/authors';
-import Topics from './components/topics';
 
-function App() {
+import { Authors } from './components/tabs/authors';
+import { Books } from './components/tabs/books';
+import { Topics } from './components/tabs/topics';
+import { Header } from './components/ui/header';
+
+export const Main = () => {
   return (
     <div className="container">
       <Header />
@@ -28,5 +27,3 @@ function App() {
     </div>
   );
 }
-
-export default App;

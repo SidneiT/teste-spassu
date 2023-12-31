@@ -26,8 +26,8 @@ class StoreUpdateBookRequest extends FormRequest
             'publisher' => 'required|max:40',
             'edition' => 'required|integer',
             'year' => 'required|min:4|max:4',
-            'author' => 'string|max:40',
-            'topic' => 'string|max:20'
+            'authors' => 'array',
+            'topics' => 'array'
         ];
     }
 }

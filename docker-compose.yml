@@ -22,15 +22,15 @@ services:
             - sail
         depends_on:
             - mysql
-    frontend:
-        build:
-            context: ./front-react
-            dockerfile: Dockerfile
-        ports:
-            - "3000:3000"
-        command: ["npm", "start"]
-        depends_on:
-            - backend
+    # frontend:
+    #     build:
+    #         context: ./front-react
+    #         dockerfile: Dockerfile
+    #     ports:
+    #         - "3000:3000"
+    #     command: ["npm", "start"]
+    #     depends_on:
+    #         - backend
     mysql:
         image: 'mysql/mysql-server:8.0'
         ports:

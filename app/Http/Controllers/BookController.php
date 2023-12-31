@@ -21,14 +21,12 @@ class BookController extends Controller
     {
         $book = Book::create($request->validated());
 
-        if ($request->author) {
-            $author = Author::firstOrCreate(['name' => $request->author]);
-            $book->authors()->save($author);
+        if ($request->authors) {
+            $book->authors()->saveMany(Author::find($request->authors));
         }
 
-        if ($request->topic) {
-            $topic = Topic::firstOrCreate(['description' => $request->topic]);
-            $book->topics()->save($topic);
+        if ($request->topics) {
+            $book->topics()->saveMany(Topic::find($request->topics));
         }
 
         return response()->json($book, 201);
@@ -47,11 +45,11 @@ class BookController extends Controller
         $book->update($request->validated());
 
         if ($request->authors) {
-            $book->authors()->saveMany(Author::find($request->authors));
+            $book->authors()->sync(Author::find($request->authors));
         }
 
         if ($request->topics) {
-            $book->topics()->saveMany(Topic::find($request->topics));
+            $book->topics()->sync(Topic::find($request->topics));
         }
 
         return response()->json($book);
