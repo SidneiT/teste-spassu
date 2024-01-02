@@ -36,3 +36,8 @@ Paths das API`s, no projeto contém a collection para testes utilizando o [ Post
 | ---------------------------- |
 | http://localhost/api/authors |
 | http://localhost/api/topics  |
+
+
+Relatório criado usando Jasper Reports, abaixo prints das telas criadas.
+
+![1704216913397](image/README/1704216913397.png)![1704216991582](image/README/1704216991582.png)
