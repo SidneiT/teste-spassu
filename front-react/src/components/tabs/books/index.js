@@ -78,7 +78,7 @@ export const Books = () => {
           </tr>
         </thead>
         <tbody>
-          {!loading &&
+          {
             books.map(book => (
               <BookTR
                 key={book.id}
@@ -90,6 +90,7 @@ export const Books = () => {
           }
         </tbody>
       </Table>
+      {!books.length && 'Sem dados para exibir.'}
       {loading && 'Loading...'}
       {loadError && 'Ocorreu um erro ao buscar os dados, por favor, atualize a página e tente novamente.'}
     </TabContent>

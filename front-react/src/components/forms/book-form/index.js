@@ -126,10 +126,12 @@ export const BookForm = ({ onSaved, onCancel, editData = defaultData }) => {
           <Form.Group className="mb-3">
             <Form.Label>Assunto</Form.Label>
             <Form.Select
-              defaultValue={editData.topics.map(({ id }) => id)}
+              defaultValue={editData.topics[0]?.id}
               onChange={handleChange}
               name="topics"
+              required
             >
+              <option value="" disabled selected>Selecione</option>
               {topics.map(({ id, description }) => <option key={id} value={id}>{description}</option>)}
             </Form.Select>
           </Form.Group>
@@ -138,10 +140,12 @@ export const BookForm = ({ onSaved, onCancel, editData = defaultData }) => {
           <Form.Group className="mb-3">
             <Form.Label>Autores</Form.Label>
             <Form.Select
-              defaultValue={editData.authors.map(({ id }) => id)}
+              defaultValue={editData.authors[0]?.id}
               onChange={handleChange}
               name="authors"
+              required
             >
+              <option value="" disabled selected>Selecione</option>
               {authors.map(({ id, name }) => <option key={id} value={id}>{name}</option>)}
             </Form.Select>
           </Form.Group>
